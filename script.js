@@ -1,13 +1,35 @@
+function parseMoney(input) {
+
+    input = input.toLowerCase().replace(/,/g, "").trim();
+
+    let multiplier = 1;
+
+    if (input.endsWith("k")) {
+        multiplier = 1000;
+        input = input.slice(0, -1);
+    }
+
+    else if (input.endsWith("m")) {
+        multiplier = 1000000;
+        input = input.slice(0, -1);
+    }
+
+    else if (input.endsWith("b")) {
+        multiplier = 1000000000;
+        input = input.slice(0, -1);
+    }
+
+    return Number(input) * multiplier;
+}
+
+
 function calculate() {
 
-    // Get prices from boxes
-    let pickaxe = Number(document.getElementById("pickaxe").value);
-    let sellaxe = Number(document.getElementById("sellaxe").value);
-    let axe = Number(document.getElementById("axe").value);
-    let potion = Number(document.getElementById("potion").value);
+    let pickaxe = parseMoney(document.getElementById("pickaxe").value);
+    let sellaxe = parseMoney(document.getElementById("sellaxe").value);
+    let axe = parseMoney(document.getElementById("axe").value);
+    let potion = parseMoney(document.getElementById("potion").value);
 
-
-    // Calculate value per shard
 
     let results = [
         {
@@ -32,28 +54,23 @@ function calculate() {
     ];
 
 
-    // Sort highest value first
     results.sort(function(a, b) {
         return b.value - a.value;
     });
 
 
-    // Display results
-
     let output = "";
 
     for (let i = 0; i < results.length; i++) {
 
-        output += 
+        output +=
         (i + 1) + ". " +
         results[i].name +
         " - " +
         Math.floor(results[i].value).toLocaleString() +
-        " money per shard"
-        + "<br>";
+        " money per shard<br>";
     }
 
 
     document.getElementById("results").innerHTML = output;
-
 }
