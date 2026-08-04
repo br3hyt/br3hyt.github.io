@@ -19,7 +19,34 @@ function parseMoney(input) {
         input = input.slice(0, -1);
     }
 
+    else if (input.endsWith("t")) {
+        multiplier = 1000000000000;
+        input = input.slice(0, -1);
+    }
+
     return Number(input) * multiplier;
+}
+
+
+function formatMoney(number) {
+
+    if (number >= 1000000000000) {
+        return (number / 1000000000000).toFixed(2).replace(/\.00$/, "") + "t";
+    }
+
+    if (number >= 1000000000) {
+        return (number / 1000000000).toFixed(2).replace(/\.00$/, "") + "b";
+    }
+
+    if (number >= 1000000) {
+        return (number / 1000000).toFixed(2).replace(/\.00$/, "") + "m";
+    }
+
+    if (number >= 1000) {
+        return (number / 1000).toFixed(2).replace(/\.00$/, "") + "k";
+    }
+
+    return number;
 }
 
 
@@ -54,23 +81,36 @@ function calculate() {
     ];
 
 
-    results.sort(function(a, b) {
-        return b.value - a.value;
-    });
+    results.sort((a, b) => b.value - a.value);
 
 
-    let output = "";
+    let best = results[0];
+    let second = results[1];
+
+    let difference = best.value - second.value;
+
+
+    let output = `
+    <h3>🏆 Best Buy: ${best.name}</h3>
+    <p>${formatMoney(best.value)} total value</p>
+
+    <p>💰 Beats ${second.name} by ${formatMoney(difference)}</p>
+
+    <h3>Ranking:</h3>
+    `;
+
 
     for (let i = 0; i < results.length; i++) {
 
-        output +=
+        output += 
         (i + 1) + ". " +
         results[i].name +
         " - " +
-        Math.floor(results[i].value).toLocaleString() +
-        " per 1.5k shards<br>";
+        formatMoney(results[i].value) +
+        "<br>";
     }
 
 
     document.getElementById("results").innerHTML = output;
+
 }
