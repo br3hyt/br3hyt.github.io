@@ -34,22 +34,22 @@ function calculate() {
     let results = [
         {
             name: "Shard Pickaxe",
-            value: pickaxe / 1500
+            value: pickaxe
         },
 
         {
             name: "Shard Sell Axe",
-            value: sellaxe / 1500
+            value: sellaxe
         },
 
         {
             name: "Shard Axe",
-            value: axe / 1500
+            value: axe
         },
 
         {
             name: "Shard Potion",
-            value: (potion * 6) / 250
+            value: potion * 6
         }
     ];
 
@@ -68,7 +68,7 @@ function calculate() {
         results[i].name +
         " - " +
         Math.floor(results[i].value).toLocaleString() +
-        " money per shard<br>";
+        " per 1.5k shards<br>";
     }
 
 
