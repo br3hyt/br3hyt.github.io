@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Donut SMP Shard Calculator</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>🍩 Donut SMP Shard Calculator</h1>
+<h1>Donut SMP Shard Calculator</h1>
 
-<div class="box">
+<p>
+Shard Pickaxe Market Price:
+<input id="pickaxe" type="number">
+</p>
 
-    <label>Shard Pickaxe Market Price</label>
-    <input id="pickaxe" type="number">
+<p>
+Shard Sell Axe Market Price:
+<input id="sellaxe" type="number">
+</p>
 
-    <label>Shard Sell Axe Market Price</label>
-    <input id="sellaxe" type="number">
+<p>
+Shard Axe Market Price:
+<input id="axe" type="number">
+</p>
 
-    <label>Shard Axe Market Price</label>
-    <input id="axe" type="number">
+<p>
+Shard Potion Market Price:
+<input id="potion" type="number">
+</p>
 
-    <label>Shard Potion Market Price</label>
-    <input id="potion" type="number">
+<button onclick="calculate()">Calculate</button>
 
-    <button onclick="calculate()">Calculate</button>
-
-</div>
-
-
-<h2>Results</h2>
+<h2>Results:</h2>
 
 <div id="results"></div>
-
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
