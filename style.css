@@ -1,61 +1,107 @@
+/* ===== Page ===== */
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f5f5;
 }
 
+
+/* ===== Navigation Bar ===== */
 
 nav {
-    background: #38c5d4;
-    height: 70px;
+    background: white;
+    border-bottom: 2px solid black;
     display: flex;
     align-items: center;
-    padding-left: 40px;
-    gap: 35px;
+    padding: 0 20px;
+    height: 60px;
 }
 
+
+/* Navigation links */
 
 nav a {
-    color: white;
+    color: black;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px 15px;
+}
+
+nav a:hover {
+    background: #eeeeee;
 }
 
 
-nav h2 {
+/* Push the logo/name to the right */
+
+.logo {
     margin-left: auto;
-    margin-right: 40px;
-    color: white;
+    font-size: 28px;
     font-style: italic;
+    font-weight: bold;
 }
 
+
+/* ===== Dropdown ===== */
 
 .dropdown {
     position: relative;
 }
 
-
 .dropdown-content {
     display: none;
     position: absolute;
-    background: white;
-    min-width: 180px;
-    top: 35px;
-}
 
+    top: 100%;
+    left: 0;
+
+    background: white;
+    border: 1px solid black;
+
+    min-width: 220px;
+
+    z-index: 1000;
+}
 
 .dropdown-content a {
-    color: black;
     display: block;
-    padding: 10px;
-    font-size: 18px;
+    padding: 12px;
+    color: black;
 }
-
 
 .dropdown-content a:hover {
-    background: #ddd;
+    background: #eeeeee;
 }
 
+/* Keep menu open while hovering */
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+
+/* ===== Main Content ===== */
+
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+p {
+    font-size: 20px;
+}
+
+ul {
+    font-size: 20px;
 }
